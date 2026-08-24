@@ -12,4 +12,10 @@
     <Description>Contains the Types required for creating an NUnit extension of any kind.</Description>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE.txt" Pack="true" PackagePath="\" />
+    <None Include="..\..\nunit_256.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
 </Project>

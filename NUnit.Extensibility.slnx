@@ -1,0 +1,30 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="build" />
+    <File Path="build.cake" />
+    <File Path="build.cmd" />
+    <File Path="build.ps1" />
+    <File Path="build.sh" />
+    <File Path="Directory.Packages.props" />
+    <File Path="GitReleaseManager.yaml" />
+    <File Path="global.json" />
+    <File Path="LICENSE.txt" />
+    <File Path="nunit_256.png" />
+    <File Path="README.md" />
+    <File Path="src/Directory.Build.props" />
+    <File Path="src/Nullable.props" />
+    <File Path="src/nunit.snk" />
+    <File Path="src/StyleCop.Analyzers.globalconfig" />
+  </Folder>
+  <Folder Name="/Solution Items/.github/" />
+  <Folder Name="/Solution Items/.github/workflows/">
+    <File Path=".github/workflows/NUnit.Extensibility.CI.yml" />
+  </Folder>
+  <Project Path="src/FakeExtensions/2.0/FakeExtensions.csproj" />
+  <Project Path="src/NUnit.Extensibility.Api/NUnit.Extensibility.Api.csproj" />
+  <Project Path="src/NUnit.Extensibility.Tests/NUnit.Extensibility.Tests.csproj" />
+  <Project Path="src/NUnit.Extensibility/NUnit.Extensibility.csproj" />
+</Solution>

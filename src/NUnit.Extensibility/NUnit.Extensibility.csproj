@@ -13,17 +13,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE.txt" Pack="true" PackagePath="\" />
+    <None Include="..\..\nunit_256.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NUnit.Engine.Api" />
+    <PackageReference Include="NUnit.Common" />
     <PackageReference Include="TestCentric.Metadata" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\nunit.extensibility.api\nunit.extensibility.api.csproj" />
-    <ProjectReference Include="..\..\NUnitCommon\nunit.common\nunit.common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="nunit.extensibility.tests, PublicKey=$(NUnitPublicKey)"/>
+    <InternalsVisibleTo Include="nunit.extensibility.tests, PublicKey=$(NUnitPublicKey)" />
   </ItemGroup>
 
 </Project>
