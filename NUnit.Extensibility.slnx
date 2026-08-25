@@ -19,7 +19,9 @@
     <File Path="src/nunit.snk" />
     <File Path="src/StyleCop.Analyzers.globalconfig" />
   </Folder>
-  <Folder Name="/Solution Items/.github/" />
+  <Folder Name="/Solution Items/.github/">
+    <File Path=".github/dependabot.yml" />
+  </Folder>
   <Folder Name="/Solution Items/.github/workflows/">
     <File Path=".github/workflows/NUnit.Extensibility.CI.yml" />
   </Folder>
