@@ -9,7 +9,7 @@ using NUnit.FileSystemAccess;
 
 namespace NUnit.Extensibility
 {
-    public class AddinsFile : List<AddinsFileEntry>
+    internal class AddinsFile : List<AddinsFileEntry>
     {
         public static AddinsFile Read(IFile file)
         {

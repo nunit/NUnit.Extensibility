@@ -7,7 +7,7 @@ namespace NUnit.Extensibility.Wrappers
     /// <summary>
     /// Wrapper class for listeners based on the NUnit3 API
     /// </summary>
-    public class TestEventListenerWrapper : ExtensionWrapper, ITestEventListener
+    internal class TestEventListenerWrapper : ExtensionWrapper, ITestEventListener
     {
         public TestEventListenerWrapper(object listener) : base(listener)
         {

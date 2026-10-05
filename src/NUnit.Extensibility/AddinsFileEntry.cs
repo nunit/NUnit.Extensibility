@@ -6,7 +6,7 @@ using NUnit.Common;
 namespace NUnit.Extensibility
 {
     // Class representing a single line in an Addins file
-    public class AddinsFileEntry
+    internal class AddinsFileEntry
     {
         public int LineNumber { get; }
         public string RawText { get; }
