@@ -10,7 +10,7 @@ namespace NUnit.Extensibility.Wrappers
     /// <summary>
     /// Wrapper class for result writers based on the NUnit3 API
     /// </summary>
-    public class ResultWriterWrapper : ExtensionWrapper, IResultWriter
+    internal class ResultWriterWrapper : ExtensionWrapper, IResultWriter
     {
         private static readonly Type[] XmlNodeStringTypes = [typeof(XmlNode), typeof(string)];
         private static readonly Type[] XmlNodeTextWriterTypes = [typeof(XmlNode), typeof(TextWriter)];

@@ -13,7 +13,7 @@ namespace NUnit.Extensibility.Wrappers
     /// <summary>
     /// Wrapper class for project loaders which use the NUnit3 Engine API
     /// </summary>
-    public class ProjectLoaderWrapper : ExtensionWrapper, IProjectLoader
+    internal class ProjectLoaderWrapper : ExtensionWrapper, IProjectLoader
     {
         public ProjectLoaderWrapper(object projectLoader) : base(projectLoader)
         {
