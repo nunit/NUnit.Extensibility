@@ -10,9 +10,6 @@ namespace NUnit.Extensibility
         bool FromWildCard { get; }
         string AssemblyName { get; }
         Version AssemblyVersion { get; }
-//#if NETFRAMEWORK
-//        RuntimeFramework TargetFramework { get; }
-//#endif
         FrameworkName FrameworkName { get; }
     }
 }

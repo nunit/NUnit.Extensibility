@@ -7,7 +7,7 @@ using NUnit.Extensibility.Wrappers;
 
 namespace NUnit.Extensibility
 {
-    public abstract class ExtensionWrapper
+    internal abstract class ExtensionWrapper
     {
         public static readonly Type[] NoTypes = [];
         public static readonly Type[] StringType = [typeof(string)];

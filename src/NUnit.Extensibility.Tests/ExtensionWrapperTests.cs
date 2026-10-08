@@ -260,7 +260,7 @@ namespace NUnit.Extensibility
         string Name { get; }
     }
 
-    public class ThingyWrapper : ExtensionWrapper, IThingy
+    internal class ThingyWrapper : ExtensionWrapper, IThingy
     {
         public ThingyWrapper(object wrappedInstance) : base(wrappedInstance)
         {
