@@ -51,12 +51,6 @@ namespace NUnit.Engine.Fakes
         }
     }
 
-    [Extension(ExtensibilityVersion = "3.4.0")]
-    public class Version3Extension : ITestEventListener
-    {
-        public void OnTestEvent(string report) => throw new NotImplementedException();
-    }
-
     [Extension(ExtensibilityVersion = "4.0.0")]
     public class FakeServiceExtension : IService
     {

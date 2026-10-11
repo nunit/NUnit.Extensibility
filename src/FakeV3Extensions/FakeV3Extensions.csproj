@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net462;netstandard2.0</TargetFrameworks>
+    <RootNamespace>NUnit.Extensibility</RootNamespace>
+    <OutputPath>..\..\bin\$(Configuration)\fakes</OutputPath>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <AssemblyName>FakeV3Extensions</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit.Engine.Api" VersionOverride="3.22.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="fake-v3-extensions.addins">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

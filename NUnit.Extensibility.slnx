@@ -25,7 +25,8 @@
   <Folder Name="/Solution Items/.github/workflows/">
     <File Path=".github/workflows/NUnit.Extensibility.CI.yml" />
   </Folder>
-  <Project Path="src/FakeExtensions/2.0/FakeExtensions.csproj" />
+  <Project Path="src/FakeExtensions/FakeExtensions.csproj" />
+  <Project Path="src/FakeV3Extensions/FakeV3Extensions.csproj" />
   <Project Path="src/NUnit.Extensibility.Api/NUnit.Extensibility.Api.csproj" />
   <Project Path="src/NUnit.Extensibility.Tests/NUnit.Extensibility.Tests.csproj" />
   <Project Path="src/NUnit.Extensibility/NUnit.Extensibility.csproj" />

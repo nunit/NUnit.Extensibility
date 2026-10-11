@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Charlie Poole, Rob Prouse and Contributors. MIT License - see LICENSE.txt
 
+#if SUPPORT_V3_EXTENSIONS
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -146,3 +147,4 @@ namespace NUnit.Extensibility
         private readonly Dictionary<string, PropertyInfo> _properties = new();
     }
 }
+#endif

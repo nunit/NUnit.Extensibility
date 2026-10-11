@@ -32,6 +32,10 @@ namespace NUnit.Extensibility
         private const string FAKE_SERVICE_EXTENSION = "NUnit.Engine.Fakes.FakeServiceExtension";
         private const string FAKE_DISABLED_EXTENSION = "NUnit.Engine.Fakes.FakeDisabledExtension";
         private const string FAKE_EXTENSION_WITH_NO_EXTENSION_POINT = "NUnit.Engine.Fakes.FakeExtension_NoExtensionPointFound";
+        private const string FAKE_V3_PROJECT_LOADER_EXTENSION = "NUnit.Engine.Fakes.FakeV3ProjectLoaderExtension";
+        private const string FAKE_V3_RESULT_WRITER_EXTENSION = "NUnit.Engine.Fakes.FakeV3ResultWriterExtension";
+        private const string FAKE_V3_EVENT_LISTENER_EXTENSION = "NUnit.Engine.Fakes.FakeV3EventListenerExtension";
+        private const string FAKE_V3_SERVICE_EXTENSION = "NUnit.Engine.Fakes.FakeV3ServiceExtension";
 
         private readonly string[] KnownExtensions =
         {
@@ -42,7 +46,13 @@ namespace NUnit.Extensibility
             FAKE_EVENT_LISTENER_EXTENSION,
             FAKE_SERVICE_EXTENSION,
             FAKE_DISABLED_EXTENSION,
-            FAKE_EXTENSION_WITH_NO_EXTENSION_POINT
+            FAKE_EXTENSION_WITH_NO_EXTENSION_POINT,
+#if SUPPORT_V3_EXTENSIONS
+            FAKE_V3_PROJECT_LOADER_EXTENSION,
+            FAKE_V3_RESULT_WRITER_EXTENSION,
+            FAKE_V3_EVENT_LISTENER_EXTENSION,
+            FAKE_V3_SERVICE_EXTENSION
+#endif
         };
 
         private ExtensionManager _extensionManager;
@@ -81,7 +91,11 @@ namespace NUnit.Extensibility
                 typeof(IService)
             ];
 
+#if SUPPORT_V3_EXTENSIONS
+            _expectedExtensionCounts = [1, 1, 2, 2, 3, 2];
+#else
             _expectedExtensionCounts = [1, 1, 1, 1, 2, 1];
+#endif
         }
 
         [SetUp]
@@ -117,7 +131,10 @@ namespace NUnit.Extensibility
             // We have two builds of FakeExtensions. Version 2
             // should be used rather than 1 for all extensions.
             foreach (var node in _extensionManager.Extensions)
-                Assert.That(node.AssemblyVersion.ToString(), Is.EqualTo("2.0.0.0"));
+            {
+                string expectedVersion = node.TypeName.Contains("V3") ? "1.0.0.0" : "2.0.0.0";
+                Assert.That(node.AssemblyVersion.ToString(), Is.EqualTo(expectedVersion));
+            }
         }
 
         [Test]
@@ -179,7 +196,7 @@ namespace NUnit.Extensibility
                 var extensionCount = _expectedExtensionCounts[i];
                 var ep = _extensionManager.GetExtensionPoint(path);
                 Assume.That(ep, Is.Not.Null);
-                Assert.That(ep.Extensions.Count, Is.EqualTo(extensionCount));
+                Assert.That(ep.Extensions.Count, Is.EqualTo(extensionCount), $"Failed for ExtensionPoint {path}");
             }
         }
 

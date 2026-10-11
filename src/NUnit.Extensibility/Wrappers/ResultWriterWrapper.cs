@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Charlie Poole, Rob Prouse and Contributors. MIT License - see LICENSE.txt
 
+#if SUPPORT_V3_EXTENSIONS
 using System;
 using System.IO;
 using System.Xml;
@@ -35,3 +36,4 @@ namespace NUnit.Extensibility.Wrappers
         }
     }
 }
+#endif

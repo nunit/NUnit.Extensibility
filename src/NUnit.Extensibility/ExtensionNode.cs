@@ -161,9 +161,13 @@ namespace NUnit.Extensibility
 
             // TODO: Determine whether to continue support for V3 extensions here,
             // defer it to the engine or eliminate it entirely.
+#if SUPPORT_V3_EXTENSIONS
             return IsV3Extension
                 ? ExtensionWrapper.Wrap(obj, Path)
                 : obj;
+#else
+            return obj;
+#endif
         }
 
         #endregion

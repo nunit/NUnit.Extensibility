@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Charlie Poole, Rob Prouse and Contributors. MIT License - see LICENSE.txt
 
+#if SUPPORT_V3_EXTENSIONS
 using NUnit.Engine;
 
 // Copyright (c) Charlie Poole, Rob Prouse and Contributors. MIT License - see LICENSE.txt
@@ -94,3 +95,4 @@ namespace NUnit.Extensibility.Wrappers
         }
     }
 }
+#endif

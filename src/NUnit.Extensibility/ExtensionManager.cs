@@ -31,8 +31,11 @@ namespace NUnit.Extensibility
 
         private static readonly string EXTENSION_ATTRIBUTE = typeof(ExtensionAttribute).FullName.ShouldNotBeNull();
         private static readonly string EXTENSION_PROPERTY_ATTRIBUTE = typeof(ExtensionPropertyAttribute).FullName.ShouldNotBeNull();
+
+#if SUPPORT_V3_EXTENSIONS
         private static readonly string V3_EXTENSION_ATTRIBUTE = "NUnit.Engine.Extensibility.ExtensionAttribute";
         private static readonly string V3_EXTENSION_PROPERTY_ATTRIBUTE = "NUnit.Engine.Extensibility.ExtensionPropertyAttribute";
+#endif
 
         private readonly IFileSystem _fileSystem;
         private readonly IDirectoryFinder _directoryFinder;
@@ -483,13 +486,16 @@ namespace NUnit.Extensibility
 
             foreach (TypeDefinition extensionType in extensionAssembly.Assembly.MainModule.GetTypes())
             {
-                bool isV3Extension = false;
                 CustomAttribute extensionAttr = extensionType.GetAttribute(EXTENSION_ATTRIBUTE);
+
+#if SUPPORT_V3_EXTENSIONS
+                bool isV3Extension = false;
                 if (extensionAttr is null)
                 {
                     extensionAttr = extensionType.GetAttribute(V3_EXTENSION_ATTRIBUTE);
                     isV3Extension = true;
                 }
+#endif
 
                 if (extensionAttr is not null)
                 {
@@ -506,7 +512,9 @@ namespace NUnit.Extensibility
                     string? extensionAttrPath = (string?)extensionAttr.GetNamedArgument(nameof(ExtensionAttribute.Path));
                     var node = new ExtensionNode(extensionAssembly, extensionType)
                     {
+#if SUPPORT_V3_EXTENSIONS
                         IsV3Extension = isV3Extension,
+#endif
                         Description = (string?)extensionAttr.GetNamedArgument(nameof(ExtensionAttribute.Description)),
                     };
 
@@ -515,9 +523,12 @@ namespace NUnit.Extensibility
 
                     log.Info("  Found ExtensionAttribute on Type " + extensionType.Name);
 
-                    var propertyAttributes = isV3Extension
-                        ? extensionType.GetAttributes(V3_EXTENSION_PROPERTY_ATTRIBUTE)
-                        : extensionType.GetAttributes(EXTENSION_PROPERTY_ATTRIBUTE);
+                    var propertyAttributes =
+#if SUPPORT_V3_EXTENSIONS
+                        isV3Extension
+                            ? extensionType.GetAttributes(V3_EXTENSION_PROPERTY_ATTRIBUTE) :
+#endif
+                        extensionType.GetAttributes(EXTENSION_PROPERTY_ATTRIBUTE);
 
                     foreach (var attr in propertyAttributes)
                     {
