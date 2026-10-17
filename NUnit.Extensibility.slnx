@@ -12,6 +12,7 @@
     <File Path="GitReleaseManager.yaml" />
     <File Path="global.json" />
     <File Path="LICENSE.txt" />
+    <File Path="NuGet.config" />
     <File Path="nunit_256.png" />
     <File Path="README.md" />
     <File Path="src/Directory.Build.props" />
